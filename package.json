@@ -2,7 +2,7 @@
   "name": "rent-my-ride",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://slipuykamin.github.io/rent-my-ride",
+  "homepage": "https://slipuykamin.github.io/rent-my-ride/",
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@testing-library/jest-dom": "^5.16.3",
