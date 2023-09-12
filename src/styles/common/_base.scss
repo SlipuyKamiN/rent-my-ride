@@ -4,13 +4,22 @@
 
 body {
   margin: 0;
-  // font-family: 'Manrope', sans-serif;
-  // font-size: 14px;
-  // font-weight: 400;
-  // line-height: 1.28;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  color: $primary-white;
 
-  // color: $primary-white-color;
-  // background-color: $main-bg-color;
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 1) 120%
+    ),
+    url('../../images/bg-image.jpg');
+
+  background-size: cover, cover;
+  background-attachment: fixed;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
@@ -27,9 +36,9 @@ body {
   }
 
   @media screen and (min-width: 1440px) {
-    &.is-open {
-      padding-right: 10px;
-    }
+    // &.is-open {
+    //   padding-right: 10px;
+    // }
   }
 }
 

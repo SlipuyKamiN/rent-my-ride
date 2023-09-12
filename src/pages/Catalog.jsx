@@ -1,11 +1,14 @@
 import CarsList from 'components/CarsList/CarsList';
+import { CatalogSection } from 'components/Catalog/CatalogPage.styled';
+import { Container } from 'components/Shared/Container.styled';
 
 const CatalogPage = () => {
   return (
-    <section>
-      <h2>CatalogPage</h2>
-      <CarsList />
-    </section>
+    <CatalogSection>
+      <Container>
+        <CarsList />
+      </Container>
+    </CatalogSection>
   );
 };
 
