@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/rent-my-ride/static/css/main.7d28e5ea.css",
-    "main.js": "/rent-my-ride/static/js/main.133b477a.js",
+    "main.css": "/rent-my-ride/static/css/main.61f5eec4.css",
+    "main.js": "/rent-my-ride/static/js/main.99fc1147.js",
+    "static/media/bg-image.jpg": "/rent-my-ride/static/media/bg-image.bc71ee5f39b5619770a6.jpg",
+    "static/media/page-logo.png": "/rent-my-ride/static/media/page-logo.bb83a3925c448df6706f.png",
     "index.html": "/rent-my-ride/index.html",
-    "main.7d28e5ea.css.map": "/rent-my-ride/static/css/main.7d28e5ea.css.map",
-    "main.133b477a.js.map": "/rent-my-ride/static/js/main.133b477a.js.map"
+    "main.61f5eec4.css.map": "/rent-my-ride/static/css/main.61f5eec4.css.map",
+    "main.99fc1147.js.map": "/rent-my-ride/static/js/main.99fc1147.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d28e5ea.css",
-    "static/js/main.133b477a.js"
+    "static/css/main.61f5eec4.css",
+    "static/js/main.99fc1147.js"
   ]
 }
