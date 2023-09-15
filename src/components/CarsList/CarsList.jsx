@@ -1,10 +1,13 @@
 import CarCard from 'components/CarCard/CarCard';
+import { ItemsList } from './CarsList.styled';
 
-const CarsList = () => {
+const CarsList = ({ allCars }) => {
   return (
-    <ul>
-      <CarCard />
-    </ul>
+    <ItemsList>
+      {allCars.map(car => (
+        <CarCard car={car} key={car.id + car.mileage} />
+      ))}
+    </ItemsList>
   );
 };
 

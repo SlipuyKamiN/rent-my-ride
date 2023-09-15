@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   outline: 1px solid tomato;
 
-  width: 1280px;
+  max-width: 1224px;
 
   padding: 0 20px;
 `;
