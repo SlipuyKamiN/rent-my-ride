@@ -1,0 +1,83 @@
+@import 'styles/common/vars';
+
+.filter-brand,
+.filter-price {
+  .filter-select {
+    &__control {
+      width: 224px;
+      height: 48px;
+
+      padding: 14px 18px;
+      border-radius: 14px;
+
+      border: none;
+      background-color: $input-bg-gray-color;
+
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.11;
+
+      &--menu-is-open {
+        .filter-select__indicator {
+          rotate: 180deg;
+        }
+      }
+    }
+
+    &__input-container {
+      cursor: text;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__value-container {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__indicator {
+      padding: 0;
+      color: $primary-font-color;
+      transition: rotate $transition-duration;
+
+      cursor: pointer;
+    }
+
+    &__placeholder {
+      color: $primary-font-color;
+    }
+
+    &__single-value {
+      margin: 0;
+    }
+
+    &__menu {
+      border-radius: 14px;
+      padding-right: 8px;
+    }
+
+    &__menu-list {
+      max-height: 272px;
+      padding: 14px 18px;
+      color: rgba($primary-font-color, 0.2);
+    }
+
+    &__option {
+      cursor: pointer;
+
+      margin-bottom: 8px;
+      padding: 0;
+      background-color: inherit;
+      font-size: 14px;
+      line-height: calc(18 / 14);
+    }
+
+    &__option--is-selected {
+      color: $primary-font-color;
+    }
+
+    &__indicator-separator {
+      background-color: inherit;
+    }
+  }
+}
