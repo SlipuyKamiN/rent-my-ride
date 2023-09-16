@@ -5,7 +5,7 @@ import pageLogoPath from 'images/page-logo.png';
 const Header = () => {
   return (
     <PageHeader>
-      <Link>
+      <Link to="/">
         <PageLogo src={pageLogoPath} width={150} />
       </Link>
       <nav>

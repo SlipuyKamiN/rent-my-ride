@@ -6,6 +6,9 @@ import {
   SubmitButton,
 } from './Filter.styled';
 import makes from 'data/makes.json';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useController, useForm } from 'react-hook-form';
+import { validationSchema } from './filterSchema';
 
 const brands = makes.map(make => ({ value: make, label: make }));
 const pricesPerHour = [
@@ -21,13 +24,41 @@ const pricesPerHour = [
   { value: 100, label: 100 },
 ];
 
-const Filter = () => {
+const Filter = ({ cars, setFiltered }) => {
+  const { register, handleSubmit, control, getValues } = useForm({
+    defaultValues: { brand: '', price: '', mileageFrom: '', mileageTo: '' },
+    resolver: yupResolver(validationSchema),
+  });
+  const {
+    field: { value: brandValue, onChange: brandChange, ...brandAttrs },
+  } = useController({ name: 'brand', control });
+  const {
+    field: { value: priceValue, onChange: priceChange, ...priceAttrs },
+  } = useController({ name: 'price', control });
+
+  const onSubmit = ({ price, brand, mileageFrom = 0, mileageTo }) =>
+    setFiltered(
+      cars
+        .filter(({ make }) => (brand ? make === brand : make))
+        .filter(({ rentalPrice }) => {
+          if (!price) return rentalPrice;
+          rentalPrice = Number(rentalPrice.replace('$', ''));
+          price = Number(price);
+
+          return rentalPrice >= price && rentalPrice <= price + 9;
+        })
+        .filter(({ mileage }) => mileage > mileageFrom)
+        .filter(({ mileage }) => (mileageTo ? mileage < mileageTo : mileage))
+    );
+
   return (
-    <FilterForm>
+    <FilterForm onSubmit={handleSubmit(onSubmit)}>
       <div className="filter-brand">
         <FormLabel>Car brand</FormLabel>
         <Select
+          {...brandAttrs}
           classNamePrefix="filter-select"
+          onChange={({ value }) => brandChange(value)}
           options={brands}
           placeholder="Enter the text"
         />
@@ -35,15 +66,28 @@ const Filter = () => {
       <div className="filter-price">
         <FormLabel>Price / 1 hour</FormLabel>
         <Select
+          {...priceAttrs}
           classNamePrefix="filter-select"
+          onChange={({ value }) => priceChange(value)}
           options={pricesPerHour}
           placeholder="Enter the text"
         />
       </div>
       <div>
         <FormLabel>Car mileage / km</FormLabel>
-        <MileageInput type="text" placeholder="From" />
-        <MileageInput type="text" placeholder="To" />
+        <MileageInput
+          type="number"
+          min={0}
+          max={Number(getValues().mileageTo) || null}
+          placeholder="From"
+          {...register('mileageFrom')}
+        />
+        <MileageInput
+          type="number"
+          min={Number(getValues().mileageFrom) || 0}
+          placeholder="To"
+          {...register('mileageTo')}
+        />
       </div>
       <SubmitButton type="submit">Search</SubmitButton>
     </FilterForm>

@@ -4,6 +4,8 @@ import { colors } from 'styles/common/vars';
 
 export const FilterForm = styled.form`
   display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
   gap: 18px;
 `;
 
