@@ -2,8 +2,6 @@ import { useCars } from 'context/carsContext';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import {
   AddToWishlistBtn,
-  CardDetailsItem,
-  CardDetailsList,
   CardImage,
   CardItem,
   CardPrice,
@@ -12,6 +10,9 @@ import {
   LearnMoreButton,
 } from './CarCard.styled';
 import { colors } from 'styles/common/vars';
+import { useState } from 'react';
+import LearnMoreModal from './LearnMoreModal';
+import CarDetailsList from './CarDetailsList';
 
 const CarCard = ({
   car: {
@@ -31,7 +32,12 @@ const CarCard = ({
   car,
 }) => {
   const { wishlist, reducer } = useCars();
+  const [openLearnMore, setOpenLearnMore] = useState(false);
   const isFavorite = wishlist.find(car => car.id === id);
+
+  const toggleLearnMore = () => {
+    setOpenLearnMore(prev => !prev);
+  };
 
   const toggleFavorite = () => {
     if (!isFavorite) {
@@ -70,12 +76,13 @@ const CarCard = ({
         </CardTitle>
         <CardPrice>{rentalPrice}</CardPrice>
       </CardTopWrapper>
-      <CardDetailsList>
-        {carDetails.map((item, index) => (
-          <CardDetailsItem key={item + index}>{item}</CardDetailsItem>
-        ))}
-      </CardDetailsList>
-      <LearnMoreButton>Learn more</LearnMoreButton>
+      <CarDetailsList listData={carDetails} />
+      <LearnMoreButton type="button" onClick={toggleLearnMore}>
+        Learn more
+      </LearnMoreButton>
+      {openLearnMore && (
+        <LearnMoreModal car={car} toggleModal={toggleLearnMore} />
+      )}
     </CardItem>
   );
 };
