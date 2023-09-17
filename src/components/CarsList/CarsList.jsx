@@ -1,13 +1,19 @@
 import CarCard from 'components/CarCard/CarCard';
 import { ItemsList, LoadMoreBtn } from './CarsList.styled';
 import { useState } from 'react';
+import EmptySection from 'components/EmptySection/EmptySection';
 
 const CarsList = ({ allCars }) => {
   const [loadMore, setLoadMore] = useState(false);
 
   const carsToRender = allCars.slice(0, loadMore ? allCars.length : 8);
 
-  if (!allCars.length) return <div>This cars list is empty yet!</div>;
+  if (carsToRender.length === 0)
+    return (
+      <EmptySection filter>
+        There is no cars. Please, change the filter settings and try again
+      </EmptySection>
+    );
 
   return (
     <>

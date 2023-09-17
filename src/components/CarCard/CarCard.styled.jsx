@@ -49,16 +49,18 @@ export const CardTopWrapper = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.33;
+  line-height: 1.5;
 
   span {
     color: ${colors.accentColor};
   }
 `;
 
-export const CardPrice = styled.h4``;
+export const CardPrice = styled.h4`
+  font-weight: 500;
+`;
 
 export const CardDetailsList = styled.ul`
   display: flex;

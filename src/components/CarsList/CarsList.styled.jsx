@@ -17,6 +17,7 @@ export const LoadMoreBtn = styled.button`
 
   color: ${colors.accentColor};
   font-size: 16px;
+  line-height: 1.5;
   font-weight: 500;
   text-decoration: underline;
 

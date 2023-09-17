@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { colors, transition } from 'styles/common/vars';
+import { CardTitle } from './CarCard.styled';
 
 export const CloseButton = styled.button`
   position: absolute;
@@ -28,6 +29,11 @@ export const CarImage = styled.img`
   border-radius: 14px;
 
   margin-bottom: 14px;
+`;
+
+export const CarTitle = styled(CardTitle)`
+  font-size: 18px;
+  line-height: 1.33;
 `;
 
 export const CarDescription = styled.p`
@@ -60,5 +66,29 @@ export const ConditionsItem = styled.li`
   span {
     color: ${colors.accentColor};
     font-weight: 600;
+  }
+`;
+
+export const RentalLink = styled.a`
+  display: block;
+  width: 168px;
+  padding: 12px 50px;
+
+  border-radius: 12px;
+  text-align: center;
+
+  border: none;
+
+  color: ${colors.primaryWhite};
+  background-color: ${colors.accentColor};
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.42;
+
+  transition: background-color ${transition.duration};
+
+  &:hover,
+  &:focus {
+    background-color: ${colors.accentHoverColor};
   }
 `;

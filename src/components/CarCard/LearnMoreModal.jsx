@@ -3,14 +3,15 @@ import { AiOutlineClose } from 'react-icons/ai';
 import {
   CarDescription,
   CarImage,
+  CarTitle,
   CloseButton,
   ConditionsItem,
   ConditionsList,
   InfoBlockTitle,
+  RentalLink,
 } from './LearnMoreModal.styled';
-import { CardTitle, CardTopWrapper } from './CarCard.styled';
+import { CardTopWrapper } from './CarCard.styled';
 import CarDetailsList from './CarDetailsList';
-import { SubmitButton } from 'components/Catalog/Filter.styled';
 
 const LearnMoreModal = ({
   car: {
@@ -31,7 +32,6 @@ const LearnMoreModal = ({
     address,
     year,
   },
-  car,
   toggleModal,
 }) => {
   const addressSplitted = address.split(', ');
@@ -59,10 +59,10 @@ const LearnMoreModal = ({
       </CloseButton>
       <CarImage src={photoLink || img} />
       <CardTopWrapper>
-        <CardTitle>
+        <CarTitle>
           {make}
           <span> {model}</span>, {year}
-        </CardTitle>
+        </CarTitle>
       </CardTopWrapper>
       <CarDetailsList listData={carDetails} marginBottom="14px" />
       <CarDescription>{description}</CarDescription>
@@ -80,14 +80,14 @@ const LearnMoreModal = ({
               {key}{' '}
               {value && (
                 <>
-                  : <span>{value}</span>
+                  : <span>{value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                 </>
               )}
             </ConditionsItem>
           );
         })}
       </ConditionsList>
-      <SubmitButton>Rental car</SubmitButton>
+      <RentalLink href="tel:+380730000000">Rental car</RentalLink>
     </Modal>
   );
 };
