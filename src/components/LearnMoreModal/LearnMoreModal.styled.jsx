@@ -59,6 +59,7 @@ export const ConditionsItem = styled.li`
   padding: 7px 14px;
 
   border-radius: 35px;
+  font-size: 12px;
   background-color: ${colors.conditionsBgGrayColor};
 
   font-family: 'Montserrat', sans-serif;
