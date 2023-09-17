@@ -10,7 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useController, useForm } from 'react-hook-form';
 import { validationSchema } from './filterSchema';
 import { brands, pricesPerHour } from 'data/filter';
-import { formatThousands } from 'utils/formatThousands';
+import { formatThousands, getClearNumber } from 'utils/formatThousands';
 
 const Filter = ({ cars, setFiltered }) => {
   const { register, handleSubmit, control, getValues, setValue } = useForm({
@@ -35,9 +35,9 @@ const Filter = ({ cars, setFiltered }) => {
 
           return rentalPrice <= price;
         })
-        .filter(({ mileage }) => mileage > Number(mileageFrom.replace(',', '')))
+        .filter(({ mileage }) => mileage > getClearNumber(mileageFrom))
         .filter(({ mileage }) =>
-          mileageTo ? mileage < Number(mileageTo.replace(',', '')) : mileage
+          mileageTo ? mileage < getClearNumber(mileageTo) : mileage
         )
     );
 
@@ -74,7 +74,7 @@ const Filter = ({ cars, setFiltered }) => {
             className="from"
             type="text"
             min={0}
-            max={Number(getValues().mileageTo) || null}
+            max={getClearNumber(getValues().mileageTo) || null}
             maxLength={7}
             onChange={({ target }) =>
               setValue('mileageFrom', formatThousands(target.value))
@@ -87,7 +87,7 @@ const Filter = ({ cars, setFiltered }) => {
             {...register('mileageTo')}
             className="to"
             type="text"
-            min={Number(getValues().mileageFrom) || 0}
+            min={getClearNumber(getValues().mileageFrom) || 0}
             maxLength={7}
             onChange={({ target }) =>
               setValue('mileageTo', formatThousands(target.value))
