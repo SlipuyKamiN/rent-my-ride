@@ -18,9 +18,7 @@ This web application allows you to find and rent a car.
 
 ## How to start
 
-Just  
-[follow the link](https://slipuykamin.github.io/rent-my-ride)
-and enjoy
+Just [follow the link](https://slipuykamin.github.io/rent-my-ride) and enjoy.
 
 ---
 
