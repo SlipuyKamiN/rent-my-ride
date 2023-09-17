@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { NavigationLink, NavList, PageHeader, PageLogo } from './Header.styled';
 import pageLogoPath from 'images/page-logo.png';
+import { useCars } from 'context/carsContext';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const Header = () => {
+  const { wishlist } = useCars();
+
   return (
     <PageHeader>
       <Link to="/">
@@ -17,7 +21,15 @@ const Header = () => {
             <NavigationLink to="/catalog">Catalog</NavigationLink>
           </li>
           <li>
-            <NavigationLink to="/favorites">Favorites</NavigationLink>
+            <NavigationLink to="/favorites">
+              <span>Favorites </span>
+              {wishlist.length > 0 && (
+                <>
+                  <AiOutlineHeart />
+                  <span>{wishlist.length}</span>
+                </>
+              )}
+            </NavigationLink>
           </li>
         </NavList>
       </nav>

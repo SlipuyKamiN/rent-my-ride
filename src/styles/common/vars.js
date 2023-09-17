@@ -5,6 +5,7 @@ export const colors = {
   accentColor: '#3470ff',
   accentHoverColor: '#0b44cd',
   primaryWhite: '#ffffff',
+  conditionsBgGrayColor: '#F9F9F9',
   inputBgGrayColor: '#F7F7FB',
   mileageInputBorderColor: '#8A8A8933',
 };

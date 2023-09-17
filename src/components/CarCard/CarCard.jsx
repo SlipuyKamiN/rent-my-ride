@@ -14,6 +14,8 @@ import { useState } from 'react';
 import LearnMoreModal from './LearnMoreModal';
 import CarDetailsList from './CarDetailsList';
 
+const bodyClassList = document.querySelector('body').classList;
+
 const CarCard = ({
   car: {
     id,
@@ -36,7 +38,15 @@ const CarCard = ({
   const isFavorite = wishlist.find(car => car.id === id);
 
   const toggleLearnMore = () => {
-    setOpenLearnMore(prev => !prev);
+    setOpenLearnMore(prev => {
+      if (prev) {
+        bodyClassList.remove('is-open');
+      } else {
+        bodyClassList.add('is-open');
+      }
+
+      return !prev;
+    });
   };
 
   const toggleFavorite = () => {

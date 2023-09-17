@@ -49,6 +49,10 @@ export const CardTopWrapper = styled.div`
 `;
 
 export const CardTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+
   span {
     color: ${colors.accentColor};
   }
@@ -62,7 +66,7 @@ export const CardDetailsList = styled.ul`
   row-gap: 4px;
   column-gap: 6px;
 
-  margin-bottom: 28px;
+  margin-bottom: ${({ marginBottom }) => marginBottom || '28px'};
 
   font-size: 12px;
   line-height: 1.5;
@@ -88,7 +92,6 @@ export const CardDetailsItem = styled.li`
 `;
 
 export const LearnMoreButton = styled.button`
-  width: 100%;
   padding: 12px 98px;
 
   border-radius: 12px;

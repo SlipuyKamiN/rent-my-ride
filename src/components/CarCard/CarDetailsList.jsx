@@ -1,8 +1,8 @@
 import { CardDetailsList, CardDetailsItem } from './CarCard.styled';
 
-const CarDetailsList = ({ listData }) => {
+const CarDetailsList = ({ listData, marginBottom = '28px' }) => {
   return (
-    <CardDetailsList>
+    <CardDetailsList marginBottom={marginBottom}>
       {listData.map((item, index) => (
         <CardDetailsItem key={item + index}>{item}</CardDetailsItem>
       ))}

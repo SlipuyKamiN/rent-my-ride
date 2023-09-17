@@ -3,6 +3,7 @@ import {
   FilterForm,
   FormLabel,
   MileageInput,
+  BeforeInputWrapper,
   SubmitButton,
 } from './Filter.styled';
 import makes from 'data/makes.json';
@@ -45,7 +46,7 @@ const Filter = ({ cars, setFiltered }) => {
           rentalPrice = Number(rentalPrice.replace('$', ''));
           price = Number(price);
 
-          return rentalPrice >= price && rentalPrice <= price + 9;
+          return rentalPrice <= price;
         })
         .filter(({ mileage }) => mileage > mileageFrom)
         .filter(({ mileage }) => (mileageTo ? mileage < mileageTo : mileage))
@@ -65,29 +66,38 @@ const Filter = ({ cars, setFiltered }) => {
       </div>
       <div className="filter-price">
         <FormLabel>Price / 1 hour</FormLabel>
-        <Select
-          {...priceAttrs}
-          classNamePrefix="filter-select"
-          onChange={({ value }) => priceChange(value)}
-          options={pricesPerHour}
-          placeholder="Enter the text"
-        />
+        <BeforeInputWrapper paddingLeft="18px">
+          <Select
+            {...priceAttrs}
+            classNamePrefix="filter-select"
+            onChange={({ value }) => priceChange(value)}
+            options={pricesPerHour}
+            placeholder=""
+          />
+          <span>To $</span>
+        </BeforeInputWrapper>
       </div>
       <div>
         <FormLabel>Car mileage / km</FormLabel>
-        <MileageInput
-          type="number"
-          min={0}
-          max={Number(getValues().mileageTo) || null}
-          placeholder="From"
-          {...register('mileageFrom')}
-        />
-        <MileageInput
-          type="number"
-          min={Number(getValues().mileageFrom) || 0}
-          placeholder="To"
-          {...register('mileageTo')}
-        />
+        <BeforeInputWrapper>
+          <MileageInput
+            className="from"
+            type="number"
+            min={0}
+            max={Number(getValues().mileageTo) || null}
+            {...register('mileageFrom')}
+          />
+          <span>From</span>
+        </BeforeInputWrapper>
+        <BeforeInputWrapper>
+          <MileageInput
+            className="to"
+            type="number"
+            min={Number(getValues().mileageFrom) || 0}
+            {...register('mileageTo')}
+          />
+          <span>To</span>
+        </BeforeInputWrapper>
       </div>
       <SubmitButton type="submit">Search</SubmitButton>
     </FilterForm>

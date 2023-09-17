@@ -11,6 +11,7 @@ export const Backdrop = styled.div`
   height: 100dvh;
 
   padding: 0 20px;
+  overflow-y: scroll;
 
   background-color: ${colors.secondaryFontColor};
   backdrop-filter: blur(4px);

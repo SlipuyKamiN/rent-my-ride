@@ -4,6 +4,7 @@ import { colors } from 'styles/common/vars';
 
 export const FilterForm = styled.form`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
   gap: 18px;
@@ -40,16 +41,32 @@ export const DataList = styled.datalist`
   background-color: ${colors.primaryWhite};
 `;
 
+export const BeforeInputWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+
+  span {
+    position: absolute;
+    top: 14px;
+    left: ${({ paddingLeft }) => paddingLeft || '24px'};
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+`;
+
 export const MileageInput = styled(FormInput)`
   width: 160px;
+  padding-left: 70px;
 
-  &:first-of-type {
+  &.from {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-right: 1px solid ${colors.mileageInputBorderColor};
   }
 
-  &:nth-of-type(2) {
+  &.to {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
   }
@@ -57,7 +74,6 @@ export const MileageInput = styled(FormInput)`
 
 export const SubmitButton = styled(LearnMoreButton)`
   align-self: flex-end;
-  width: 136px;
   height: 48px;
   padding: 14px 44px;
 `;

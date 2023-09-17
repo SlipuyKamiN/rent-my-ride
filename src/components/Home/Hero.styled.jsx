@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { colors, transition } from 'styles/common/vars';
 
 export const HeroSection = styled.section`
-  padding: 200px 0;
+  padding: 160px 0;
 `;
 
 export const HeroTitle = styled.h1`

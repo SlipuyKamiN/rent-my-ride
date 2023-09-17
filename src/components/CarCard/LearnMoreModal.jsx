@@ -4,6 +4,8 @@ import {
   CarDescription,
   CarImage,
   CloseButton,
+  ConditionsItem,
+  ConditionsList,
   InfoBlockTitle,
 } from './LearnMoreModal.styled';
 import { CardTitle, CardTopWrapper } from './CarCard.styled';
@@ -18,7 +20,7 @@ const LearnMoreModal = ({
     mileage,
     photoLink,
     description,
-    rentalCompany,
+    rentalConditions,
     rentalPrice,
     engineSize,
     fuelConsumption,
@@ -44,6 +46,12 @@ const LearnMoreModal = ({
     `Engine size: ${engineSize}`,
   ];
 
+  const conditionsData = [
+    ...rentalConditions.split('\n'),
+    `Mileage:${mileage}`,
+    `Price:${rentalPrice}`,
+  ];
+
   return (
     <Modal toggleModal={toggleModal}>
       <CloseButton type="button" onClick={toggleModal}>
@@ -56,11 +64,29 @@ const LearnMoreModal = ({
           <span> {model}</span>, {year}
         </CardTitle>
       </CardTopWrapper>
-      <CarDetailsList listData={carDetails} />
+      <CarDetailsList listData={carDetails} marginBottom="14px" />
       <CarDescription>{description}</CarDescription>
       <InfoBlockTitle>Accessories and functionalities:</InfoBlockTitle>
-      <CarDetailsList listData={[...accessories, ...functionalities]} />
+      <CarDetailsList
+        listData={[...accessories, ...functionalities]}
+        marginBottom="24px"
+      />
       <InfoBlockTitle>Rental Conditions:</InfoBlockTitle>
+      <ConditionsList>
+        {conditionsData.map(condition => {
+          const [key, value] = condition.split(':');
+          return (
+            <ConditionsItem key={key}>
+              {key}{' '}
+              {value && (
+                <>
+                  : <span>{value}</span>
+                </>
+              )}
+            </ConditionsItem>
+          );
+        })}
+      </ConditionsList>
       <SubmitButton>Rental car</SubmitButton>
     </Modal>
   );
