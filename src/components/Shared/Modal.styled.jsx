@@ -26,6 +26,7 @@ export const ModalWrapper = styled.div`
   padding: 40px;
 
   width: 541px;
+  max-height: 95dvh;
 
   overflow-y: auto;
 
