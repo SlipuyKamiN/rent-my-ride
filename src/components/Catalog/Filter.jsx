@@ -35,8 +35,10 @@ const Filter = ({ cars, setFiltered }) => {
 
           return rentalPrice <= price;
         })
-        .filter(({ mileage }) => mileage > mileageFrom)
-        .filter(({ mileage }) => (mileageTo ? mileage < mileageTo : mileage))
+        .filter(({ mileage }) => mileage > Number(mileageFrom.replace(',', '')))
+        .filter(({ mileage }) =>
+          mileageTo ? mileage < Number(mileageTo.replace(',', '')) : mileage
+        )
     );
 
   return (
