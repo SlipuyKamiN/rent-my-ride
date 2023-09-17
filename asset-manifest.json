@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/rent-my-ride/static/css/main.a8a6faac.css",
-    "main.js": "/rent-my-ride/static/js/main.af00b1d0.js",
+    "main.js": "/rent-my-ride/static/js/main.ef0f7709.js",
     "static/js/875.21fbaac7.chunk.js": "/rent-my-ride/static/js/875.21fbaac7.chunk.js",
     "static/js/395.8d495e99.chunk.js": "/rent-my-ride/static/js/395.8d495e99.chunk.js",
     "static/js/819.59a557fa.chunk.js": "/rent-my-ride/static/js/819.59a557fa.chunk.js",
-    "static/js/915.a516a75d.chunk.js": "/rent-my-ride/static/js/915.a516a75d.chunk.js",
+    "static/js/915.7b36c8ca.chunk.js": "/rent-my-ride/static/js/915.7b36c8ca.chunk.js",
     "static/media/bg-image@2x.jpg": "/rent-my-ride/static/media/bg-image@2x.5df2cc41bf452199cc5a.jpg",
     "static/media/bg-image.jpg": "/rent-my-ride/static/media/bg-image.bc71ee5f39b5619770a6.jpg",
     "static/media/page-logo.png": "/rent-my-ride/static/media/page-logo.bb83a3925c448df6706f.png",
     "index.html": "/rent-my-ride/index.html",
     "main.a8a6faac.css.map": "/rent-my-ride/static/css/main.a8a6faac.css.map",
-    "main.af00b1d0.js.map": "/rent-my-ride/static/js/main.af00b1d0.js.map",
+    "main.ef0f7709.js.map": "/rent-my-ride/static/js/main.ef0f7709.js.map",
     "875.21fbaac7.chunk.js.map": "/rent-my-ride/static/js/875.21fbaac7.chunk.js.map",
     "395.8d495e99.chunk.js.map": "/rent-my-ride/static/js/395.8d495e99.chunk.js.map",
     "819.59a557fa.chunk.js.map": "/rent-my-ride/static/js/819.59a557fa.chunk.js.map",
-    "915.a516a75d.chunk.js.map": "/rent-my-ride/static/js/915.a516a75d.chunk.js.map"
+    "915.7b36c8ca.chunk.js.map": "/rent-my-ride/static/js/915.7b36c8ca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a8a6faac.css",
-    "static/js/main.af00b1d0.js"
+    "static/js/main.ef0f7709.js"
   ]
 }
