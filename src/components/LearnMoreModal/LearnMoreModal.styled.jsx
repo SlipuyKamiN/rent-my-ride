@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { colors, transition } from 'styles/common/vars';
-import { CardTitle } from './CarCard.styled';
+import { CardTitle } from 'components/CarCard/CarCard.styled';
 
 export const CloseButton = styled.button`
   position: absolute;

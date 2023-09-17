@@ -17,6 +17,12 @@ body {
     ),
     url('../../images/bg-image.jpg');
 
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../../images/bg-image@2x.jpg');
+  }
+
   background-size: cover, cover;
   background-attachment: fixed;
 

@@ -1,8 +1,9 @@
-import SharedLayout from 'components/SharedLayout/SharedLayout';
-import CatalogPage from 'pages/Catalog';
-import FavoritesPage from 'pages/Favorites';
-import HomePage from 'pages/Home';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import SharedLayout from 'components/SharedLayout/SharedLayout';
+import HomePage from 'pages/Home';
+const CatalogPage = lazy(() => import('pages/Catalog'));
+const FavoritesPage = lazy(() => import('pages/Favorites'));
 
 const App = () => {
   return (

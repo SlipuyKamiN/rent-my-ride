@@ -18,11 +18,12 @@ export const HeroDescription = styled.p`
 `;
 
 export const HeroLink = styled(Link)`
+  padding: 14px 44px;
+
   display: block;
   text-align: center;
   max-width: 400px;
   font-size: 18px;
-  padding: 14px 44px;
   border-radius: 12px;
   background-color: ${colors.accentColor};
   transition: background-color ${transition.duration};

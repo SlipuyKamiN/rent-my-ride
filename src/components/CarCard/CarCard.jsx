@@ -11,7 +11,7 @@ import {
 } from './CarCard.styled';
 import { colors } from 'styles/common/vars';
 import { useState } from 'react';
-import LearnMoreModal from './LearnMoreModal';
+import LearnMoreModal from '../LearnMoreModal/LearnMoreModal';
 import CarDetailsList from './CarDetailsList';
 
 const bodyClassList = document.querySelector('body').classList;
@@ -57,11 +57,11 @@ const CarCard = ({
     }
   };
 
-  const addressSplitted = address.split(', ');
+  const splitted = address.split(', ');
 
   const carDetails = [
-    addressSplitted[addressSplitted.length - 2],
-    addressSplitted[addressSplitted.length - 1],
+    splitted[splitted.length - 2],
+    splitted[splitted.length - 1],
     rentalCompany,
     type,
     model,

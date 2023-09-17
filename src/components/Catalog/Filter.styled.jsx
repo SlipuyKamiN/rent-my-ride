@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { LearnMoreButton } from 'components/CarCard/CarCard.styled';
+import { Button } from 'components/Shared/Button.styled';
 import { colors } from 'styles/common/vars';
 
 export const FilterForm = styled.form`
@@ -72,8 +72,8 @@ export const MileageInput = styled(FormInput)`
   }
 `;
 
-export const SubmitButton = styled(LearnMoreButton)`
+export const SubmitButton = styled(Button)`
   align-self: flex-end;
-  height: 48px;
   padding: 14px 44px;
+  height: 48px;
 `;

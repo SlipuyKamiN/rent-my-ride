@@ -1,4 +1,4 @@
-const { HeroTitle, HeroDescription, HeroLink } = require('./Hero.styled');
+import { HeroTitle, HeroDescription, HeroLink } from './Hero.styled';
 
 const Hero = () => {
   return (

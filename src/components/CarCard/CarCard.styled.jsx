@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Button } from 'components/Shared/Button.styled';
 import { colors, transition } from 'styles/common/vars';
 
 export const CardItem = styled.li`
@@ -93,24 +94,6 @@ export const CardDetailsItem = styled.li`
   }
 `;
 
-export const LearnMoreButton = styled.button`
+export const LearnMoreButton = styled(Button)`
   padding: 12px 98px;
-
-  border-radius: 12px;
-  text-align: center;
-
-  border: none;
-
-  color: ${colors.primaryWhite};
-  background-color: ${colors.accentColor};
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.42;
-
-  transition: background-color ${transition.duration};
-
-  &:hover,
-  &:focus {
-    background-color: ${colors.accentHoverColor};
-  }
 `;

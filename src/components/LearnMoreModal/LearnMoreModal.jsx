@@ -10,8 +10,8 @@ import {
   InfoBlockTitle,
   RentalLink,
 } from './LearnMoreModal.styled';
-import { CardTopWrapper } from './CarCard.styled';
-import CarDetailsList from './CarDetailsList';
+import { CardTopWrapper } from '../CarCard/CarCard.styled';
+import CarDetailsList from '../CarCard/CarDetailsList';
 
 const LearnMoreModal = ({
   car: {
