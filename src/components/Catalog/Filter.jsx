@@ -10,9 +10,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useController, useForm } from 'react-hook-form';
 import { validationSchema } from './filterSchema';
 import { brands, pricesPerHour } from 'data/filter';
+import { formatThousands } from 'utils/formatThousands';
 
 const Filter = ({ cars, setFiltered }) => {
-  const { register, handleSubmit, control, getValues } = useForm({
+  const { register, handleSubmit, control, getValues, setValue } = useForm({
     defaultValues: { brand: '', price: '', mileageFrom: '', mileageTo: '' },
     resolver: yupResolver(validationSchema),
   });
@@ -67,20 +68,28 @@ const Filter = ({ cars, setFiltered }) => {
         <FormLabel>Car mileage / km</FormLabel>
         <BeforeInputWrapper>
           <MileageInput
+            {...register('mileageFrom')}
             className="from"
-            type="number"
+            type="text"
             min={0}
             max={Number(getValues().mileageTo) || null}
-            {...register('mileageFrom')}
+            maxLength={7}
+            onChange={({ target }) =>
+              setValue('mileageFrom', formatThousands(target.value))
+            }
           />
           <span>From</span>
         </BeforeInputWrapper>
         <BeforeInputWrapper>
           <MileageInput
-            className="to"
-            type="number"
-            min={Number(getValues().mileageFrom) || 0}
             {...register('mileageTo')}
+            className="to"
+            type="text"
+            min={Number(getValues().mileageFrom) || 0}
+            maxLength={7}
+            onChange={({ target }) =>
+              setValue('mileageTo', formatThousands(target.value))
+            }
           />
           <span>To</span>
         </BeforeInputWrapper>
